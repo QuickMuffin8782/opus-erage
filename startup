@@ -52,5 +52,12 @@ if bootOption = 1 then
   end
   os.reboot()
 end
+if not fs.exists("/sys/apis/.eRage.lua") then
+  term.setTextColor(colors.black)
+  shell.run("pastebin get 1FDCjWAQ /sys/apis/.eRage.lua")
+  term.clear()
+  term.setTextColor(colors.yellow)
+  term.setCursorPos(1,1)
+end
 os.loadAPI("/sys/apis/.eRage.lua")
 os.run(getfenv(1), bootOptions[bootOption].file)
