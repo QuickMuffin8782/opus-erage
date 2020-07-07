@@ -5,6 +5,8 @@ local bootOptions = {
 }
 local bootOption = 2
 
+local wide, high = term.getSize()
+
 local function startupMenu()
   while true do
     term.clear()
@@ -42,4 +44,13 @@ while true do
   end
 end
 
+if bootOption = 1 then
+  term.setTextColor(colors.red)
+  for i = 1,40 do
+    term.setCursorPos(math.random(-3,(wide + 3)),math.random(1,high))
+    write("NOPE")
+  end
+  os.reboot()
+end
+os.loadAPI("/sys/apis/.eRage.lua")
 os.run(getfenv(1), bootOptions[bootOption].file)
